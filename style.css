@@ -1,0 +1,423 @@
+/* --- ۱. تنظیمات ریشه و متغیرهای رنگی (تم Cyberglow Resume) --- */
+:root {
+    --bg-color: #0a0a1a; /* پس‌زمینه (آبی نفتی خیلی تیره) */
+    --card-bg: rgba(20, 30, 50, 0.1); /* پس‌زمینه کارت (شیشه‌ای آبی‌فام) */
+    --card-border: rgba(0, 242, 255, 0.2); /* حاشیه نئونی فیروزه‌ای */
+    --text-primary: #e0e5f0; /* متن اصلی (سفید مایل به آبی) */
+    --text-secondary: #8088a0; /* متن ثانویه (خاکستری-آبی) */
+    
+    /* رنگ‌های نئونی */
+    --neon-cyan: #00f2ff;
+    --neon-pink: #ff00aa;
+    --neon-green: #00ff9d;
+    --neon-yellow: #fffb00;
+
+    /* گرادیان‌های نوار پیشرفت مهارت‌ها */
+    --skill-grad-high: linear-gradient(90deg, var(--neon-green), var(--neon-cyan));
+    --skill-grad-mid: linear-gradient(90deg, var(--neon-pink), #d400ff);
+    --skill-grad-low: linear-gradient(90deg, var(--neon-yellow), #ff8800);
+}
+
+/* --- ۲. ریست و تنظیمات کلی بادی --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.theme-cyberglow-resume {
+    font-family: 'Vazirmatn', sans-serif;
+    direction: rtl;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.8; /* خطوط بازتر برای خوانایی بهتر رزومه */
+    padding: 20px;
+    
+    background-image: 
+        linear-gradient(rgba(0, 242, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 242, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+.container {
+    max-width: 1200px; 
+    margin: 20px auto;
+}
+
+/* --- ۳. هدر رزومه --- */
+.resume-header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 30px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.1);
+    animation: fadeIn 1s ease-out forwards;
+    position: relative;
+    overflow: hidden; /* برای برش افکت‌های اضافی */
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 20px auto;
+    border: 3px solid var(--neon-cyan);
+    box-shadow: 0 0 15px var(--neon-cyan), 0 0 30px rgba(0, 242, 255, 0.5);
+    transition: transform 0.3s ease;
+}
+.profile-photo:hover {
+    transform: scale(1.05);
+}
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.resume-header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 8px var(--neon-cyan), 
+                 0 0 15px rgba(0, 242, 255, 0.7);
+    margin-bottom: 10px;
+}
+.resume-header .job-title {
+    font-size: 1.5rem;
+    color: var(--neon-pink); /* رنگ دوم نئونی برای عنوان شغلی */
+    margin-bottom: 25px;
+    text-shadow: 0 0 5px var(--neon-pink);
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 30px;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+.contact-info-social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 40px;
+    font-size: 1.2rem;
+    border-top: 1px solid var(--card-border);
+    padding-top: 20px;
+}
+
+.contact-info span, .contact-info a,
+.contact-info-social span, .contact-info-social a {
+    color: var(--text-primary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+.contact-info span:hover, .contact-info a:hover,
+.contact-info-social span:hover, .contact-info-social a:hover {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 5px var(--neon-cyan);
+}
+.contact-info i, .contact-info-social i {
+    margin-left: 10px;
+    font-size: 1.3rem;
+    background: linear-gradient(45deg, var(--neon-pink), var(--neon-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.contact-info-social a {
+    color: var(--neon-green); /* لینک‌ها سبز نئونی */
+    font-weight: 700;
+}
+
+/* --- ۴. گرید اصلی رزومه --- */
+.resume-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* دو ستون برای دسکتاپ */
+    gap: 30px;
+}
+
+.resume-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.1);
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: slideUpFade 0.6s ease-out forwards;
+    display: flex;
+    flex-direction: column; /* برای هم‌ترازی محتوا */
+}
+
+.resume-card.full-width {
+    grid-column: 1 / -1; /* این کارت تمام عرض رو اشغال می‌کنه */
+}
+
+.resume-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 0 25px var(--neon-cyan), 
+                0 0 50px rgba(0, 242, 255, 0.3);
+}
+
+.resume-card h2 {
+    font-size: 1.8rem;
+    color: var(--neon-cyan);
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(0, 242, 255, 0.3);
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-shadow: 0 0 5px var(--neon-cyan);
+}
+.glow-icon-small {
+    font-size: 1.5rem;
+    background: linear-gradient(45deg, var(--neon-pink), var(--neon-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.resume-card p {
+    color: var(--text-primary);
+    margin-bottom: 15px;
+}
+
+/* --- بخش تجربه کاری و تحصیلات --- */
+.experience-item, .education-item, .project-item {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed var(--card-border);
+    position: relative;
+}
+.experience-item:last-child, .education-item:last-child, .project-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.experience-item h3, .education-item h3, .project-item h3 {
+    font-size: 1.4rem;
+    color: var(--neon-green); /* عناوین داخلی سبز نئونی */
+    margin-bottom: 5px;
+    text-shadow: 0 0 3px var(--neon-green);
+}
+.company, .university, .school, .project-tech {
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 5px;
+}
+.duration {
+    color: var(--neon-pink);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.experience-item ul {
+    list-style: none; /* حذف دایره‌های لیست */
+    padding-right: 0;
+    margin-top: 10px;
+}
+.experience-item ul li {
+    position: relative;
+    padding-right: 25px;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+.glow-icon-list {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 5px var(--neon-cyan);
+    font-size: 0.9rem;
+}
+
+.project-link {
+    color: var(--neon-cyan);
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 700;
+    transition: text-shadow 0.3s ease, color 0.3s ease;
+}
+.project-link:hover {
+    text-shadow: 0 0 8px var(--neon-cyan);
+    color: #ffffff;
+}
+
+/* --- بخش مهارت‌ها (با نوارهای پیشرفت نئونی) --- */
+.skill-category {
+    margin-bottom: 25px;
+    border-bottom: 1px dashed var(--card-border);
+    padding-bottom: 15px;
+}
+.skill-category:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.skill-category h3 {
+    font-size: 1.2rem;
+    color: var(--neon-pink);
+    margin-bottom: 15px;
+    text-shadow: 0 0 3px var(--neon-pink);
+}
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+.skill-item span {
+    flex-basis: 120px; /* عرض ثابت برای نام مهارت */
+    flex-shrink: 0;
+    color: var(--text-primary);
+    font-weight: 400;
+}
+.skill-bar {
+    flex-grow: 1;
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    overflow: hidden;
+}
+.skill-fill {
+    display: block;
+    height: 100%;
+    border-radius: 5px;
+    background: var(--skill-grad-mid); /* پیش‌فرض */
+    transition: width 1s ease-out;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+    /* انیمیشن برای بارگذاری */
+    width: 0; /* شروع از صفر */
+    animation: fillSkillBar 1s ease-out 0.5s forwards;
+}
+
+/* اعمال گرادیان‌ها بر اساس سطح مهارت (data-skill-level) */
+.skill-fill[data-skill-level="90"] { --target-width: 90%; background: var(--skill-grad-high); box-shadow: 0 0 8px var(--neon-green); }
+.skill-fill[data-skill-level="85"] { --target-width: 85%; background: var(--skill-grad-high); box-shadow: 0 0 8px var(--neon-green); }
+.skill-fill[data-skill-level="80"] { --target-width: 80%; background: var(--skill-grad-mid); box-shadow: 0 0 8px var(--neon-pink); }
+.skill-fill[data-skill-level="75"] { --target-width: 75%; background: var(--skill-grad-mid); box-shadow: 0 0 8px var(--neon-pink); }
+.skill-fill[data-skill-level="70"] { --target-width: 70%; background: var(--skill-grad-mid); box-shadow: 0 0 8px var(--neon-pink); }
+.skill-fill[data-skill-level="65"] { --target-width: 65%; background: var(--skill-grad-low); box-shadow: 0 0 8px var(--neon-yellow); }
+.skill-fill[data-skill-level="60"] { --target-width: 60%; background: var(--skill-grad-low); box-shadow: 0 0 8px var(--neon-yellow); }
+
+
+/* --- بخش مدارک --- */
+.certificate-item {
+    text-align: center;
+    padding: 20px 0;
+    flex-grow: 1; /* باعث میشه کارت تمام ارتفاع خالی رو پر کنه */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.glow-icon-large {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    color: var(--neon-green);
+    text-shadow: 0 0 10px var(--neon-green), 0 0 20px rgba(0, 255, 157, 0.5);
+}
+.certificate-item h3 {
+    font-size: 2rem;
+    color: var(--neon-green);
+    text-shadow: 0 0 5px var(--neon-green);
+    margin-bottom: 5px;
+}
+.certificate-item p {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+.certificate-item p.school {
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 1rem;
+}
+
+
+/* --- انیمیشن‌ها و واکنش‌گرایی --- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes slideUpFade {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fillSkillBar {
+    from { width: 0; }
+    to { width: var(--target-width); } /* پر شدن تا عرض هدف */
+}
+
+@media (max-width: 992px) {
+    .resume-grid {
+        grid-template-columns: 1fr; /* در تبلت‌ها و موبایل‌ها یک ستون */
+    }
+    .resume-card.full-width {
+        grid-column: auto;
+    }
+    .resume-header h1 {
+        font-size: 2.5rem;
+    }
+    .resume-header .job-title {
+        font-size: 1.2rem;
+    }
+    .contact-info {
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+    .contact-info-social {
+        padding-top: 15px;
+        gap: 15px 25px;
+    }
+    .contact-info span, .contact-info a {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        margin: 10px auto;
+        padding: 15px;
+    }
+    .resume-header {
+        padding: 20px;
+    }
+    .resume-header h1 {
+        font-size: 2rem;
+    }
+    .resume-card {
+        padding: 20px;
+    }
+    .resume-card h2 {
+        font-size: 1.5rem;
+    }
+    .experience-item h3, .education-item h3, .project-item h3 {
+        font-size: 1.2rem;
+    }
+    .skill-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    .skill-item span {
+        flex-basis: auto;
+        width: 100%;
+        text-align: right;
+    }
+}
