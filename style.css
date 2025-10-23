@@ -420,4 +420,37 @@ body.theme-cyberglow-resume {
         width: 100%;
         text-align: right;
     }
+    /* --- استایل دکمه دیدن مدرک --- */
+.certificate-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 25px; /* فاصله از متن بالا */
+    padding: 10px 20px;
+    border: 2px solid var(--neon-blue);
+    border-radius: 50px; /* کپسولی شکل */
+    background: rgba(0, 191, 255, 0.1); /* پس‌زمینه شفاف نئونی */
+    color: var(--neon-blue);
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.certificate-link i {
+    font-size: 1rem;
+    text-shadow: none !important; /* حذف سایه اضافی آیکون‌ها */
+    color: var(--neon-blue) !important; /* اطمینان از رنگ صحیح */
+}
+
+.certificate-link:hover {
+    background: var(--neon-blue);
+    color: var(--bg-color-start); /* رنگ پس‌زمینه تیره */
+    box-shadow: 0 0 20px var(--neon-blue);
+    transform: scale(1.05);
+}
+
+.certificate-link:hover i {
+    color: var(--bg-color-start) !important; /* تغییر رنگ آیکون در هاور */
+}
+
 }
