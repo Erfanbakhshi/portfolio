@@ -436,21 +436,38 @@ body.theme-cyberglow-resume {
     transition: all 0.3s ease;
 }
 
+/* --- استایل دکمه دیدن مدرک (نسخه فیروزه‌ای) --- */
+.certificate-link {
+    /* تعریف یک رنگ فیروزه‌ای اختصاصی */
+    --neon-turquoise: #00E5EE; 
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 25px; /* فاصله از متن بالا */
+    padding: 10px 20px;
+    border: 2px solid var(--neon-turquoise); /* استفاده از رنگ فیروزه‌ای */
+    border-radius: 50px; /* کپسولی شکل */
+    background: rgba(0, 229, 238, 0.1); /* پس‌زمینه شفاف فیروزه‌ای */
+    color: var(--neon-turquoise);
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
 .certificate-link i {
     font-size: 1rem;
     text-shadow: none !important; /* حذف سایه اضافی آیکون‌ها */
-    color: var(--neon-blue) !important; /* اطمینان از رنگ صحیح */
+    color: var(--neon-turquoise) !important; /* اطمینان از رنگ فیروزه‌ای */
 }
 
 .certificate-link:hover {
-    background: var(--neon-blue);
+    background: var(--neon-turquoise);
     color: var(--bg-color-start); /* رنگ پس‌زمینه تیره */
-    box-shadow: 0 0 20px var(--neon-blue);
+    box-shadow: 0 0 20px var(--neon-turquoise);
     transform: scale(1.05);
 }
 
 .certificate-link:hover i {
     color: var(--bg-color-start) !important; /* تغییر رنگ آیکون در هاور */
-}
-
 }
