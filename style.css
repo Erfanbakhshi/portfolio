@@ -378,8 +378,46 @@ body.theme-pastel-neumorphism {
 }
 
 
-/* *** راه‌حل قطعی مشکل موبایل *** */
+/* --- ۷. واکنش‌گرایی (بسیار مهم) --- */
+@media (max-width: 992px) {
+    .bento-grid {
+        /* در تبلت 2 ستونه میشه */
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .bento-box.span-3 {
+        grid-column: span 2; /* تمام عرض (2 ستونه) */
+    }
+    .bento-box.tall {
+        grid-row: span 1; /* ارتفاع اتوماتیک */
+    }
+}
+
+/* *** بلوک کامل و اصلاح شده برای موبایل ***
+   تمام کدهای قبلی موبایل + کد لوگو اینجاست
+*/
 @media (max-width: 768px) {
+    .resume-header-bento {
+        flex-direction: column;
+        text-align: center;
+    }
+    .contact-info {
+        justify-content: center;
+    }
+    .contact-info-social {
+        flex-direction: row;
+    }
+    .bento-grid {
+        /* در موبایل 1 ستونه میشه */
+        grid-template-columns: 1fr;
+    }
+    .bento-box.span-2,
+    .bento-box.span-3,
+    .bento-box.tall {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    /* --- استایل اصلاح شده لوگو در موبایل --- */
     .education-item {
         /* ۱. چیدمان Flex رو عمودی کن */
         flex-direction: column;
@@ -388,14 +426,22 @@ body.theme-pastel-neumorphism {
     }
 
     .uni-logo {
-        margin-bottom: 15px; /* فاصله لوگو از متن در موبایل */
-        width: 100px; /* در موبایل حتی بزرگترش می‌کنیم */
+        float: none; /* خاموش کردن float (خیلی مهم) */
+        margin-right: 0; /* حذف مارجین‌های دسکتاپ */
+        margin-left: 0;
+        margin-bottom: 20px; /* فاصله لوگو از متن در موبایل */
+        width: 100px; /* بزرگ و واضح در موبایل */
         height: 100px;
+    }
+    
+    .education-item + .education-item {
+        clear: none; /* غیرفعال کردن clear */
     }
 }
     }
 
 }
+
 
 
 
