@@ -321,7 +321,7 @@ body.theme-pastel-neumorphism {
 }
 
 ./* تعریف عرض‌های جدید برای سطح مبتدی */
-.skill-fill[data-skill-level="50"] { --target-width: 50%; }
+.skill-fill[data-skill-level="40"] { --target-width: 40%; }
 .skill-fill[data-skill-level="45"] { --target-width: 45%; }
 .skill-fill[data-skill-level="40"] { --target-width: 40%; }
 .skill-fill[data-skill-level="35"] { --target-width: 35%; }
@@ -352,3 +352,4 @@ body.theme-pastel-neumorphism {
     }
 
 }
+
