@@ -339,35 +339,26 @@ body.theme-pastel-neumorphism {
     .bento-box.tall { grid-row: span 1; }
 }
 
-@media (max-width: 768px) {
-    .resume-header-bento { flex-direction: column; text-align: center; }
-    .contact-info { justify-content: center; }
-    .contact-info-social { flex-direction: row; }
-    .bento-grid { grid-template-columns: 1fr; }
-    .bento-box.span-2,
-    .bento-box.span-3,
-    .bento-box.tall {
-        grid-column: span 1;
-        grid-row: span 1;
-        /* --- استایل لوگوی دانشگاه (Neumorphism) --- */
+/* --- استایل لوگوی دانشگاه (کوچک و در سمت چپ) --- */
 .uni-logo {
-    width: 28px;  /* اندازه کوچک */
-    height: 28px;
-    border-radius: 8px; /* گوشه‌های گرد نرم */
-    object-fit: cover; /* عکس رو فیت می‌کنه */
-    margin-left: 10px; /* فاصله از متن */
+    width: 24px;  /* خیلی کوچیک‌تر شد */
+    height: 24px;
+    border-radius: 6px; /* گوشه‌های گرد متناسب */
+    object-fit: cover;
+    margin-right: 10px; /* حالا فاصله از سمت راست می‌گیره */
+    margin-left: 0;
     vertical-align: middle; /* تراز عمودی با متن */
     
-    /* افکت نومورفیسم (بیرون زده) مثل کارت‌ها */
-    box-shadow: 4px 4px 8px var(--shadow-dark), 
-                -4px -4px 8px var(--shadow-light);
+    /* افکت نومورفیسم ظریف‌تر برای سایز کوچک */
+    box-shadow: 3px 3px 6px var(--shadow-dark), 
+                -3px -3px 6px var(--shadow-light);
     
-    /* یک پدینگ کوچک تا عکس به لبه نچسبه */
-    padding: 2px;
+    padding: 2px; /* پدینگ کوچک */
     background-color: var(--bg-color);
 }
     }
 
 }
+
 
 
