@@ -334,42 +334,59 @@ body.theme-pastel-neumorphism {
 
 /* --- استایل لوگوی دانشگاه (بزرگتر و شناور در چپ) --- */
 .uni-logo {
-    width: 52px;  /* بزرگتر و حرفه‌ای‌تر */
-    height: 52px;
-    border-radius: 12px; /* گوشه‌های گرد متناسب */
+    width: 64px;  /* بزرگتر شد (از 52px به 64px) */
+    height: 64px;
+    border-radius: 16px; /* گوشه‌های گرد متناسب */
     object-fit: cover;
     
-    /* جادوی اصلی: شناور شدن به سمت چپ */
-    float: left; 
+    float: left; /* شناور در دسکتاپ */
     
-    /* فاصله از متنی که در سمت راستش قرار میگیره */
-    margin-right: 15px; 
+    margin-right: 18px; /* فاصله بیشتر */
     margin-left: 0; 
     margin-bottom: 5px;
 
-    /* افکت نومورفیسم قوی‌تر برای سایز بزرگتر */
-    box-shadow: 5px 5px 10px var(--shadow-dark), 
-                -5px -5px 10px var(--shadow-light);
+    /* افکت نومورفیسم قوی‌تر */
+    box-shadow: 6px 6px 12px var(--shadow-dark), 
+                -6px -6px 12px var(--shadow-light);
     
-    padding: 4px; /* پدینگ متناسب */
+    padding: 5px; /* پدینگ متناسب */
     background-color: var(--bg-color);
     transition: all 0.3s ease;
 }
 
 .uni-logo:hover {
-    transform: scale(1.05); /* افکت هاور ظریف */
-    box-shadow: 7px 7px 14px var(--shadow-dark), 
-                -7px -7px 14px var(--shadow-light);
+    transform: scale(1.05);
+    box-shadow: 8px 8px 16px var(--shadow-dark), 
+                -8px -8px 16px var(--shadow-light);
 }
 
-/* این کد مهم، جلوی به‌هم‌ریختگی آیتم بعدی (دیپلم) رو می‌گیره */
+/* این کد برای جلوگیری از به‌هم‌ریختگی در دسکتاپ لازمه */
 .education-item + .education-item {
     clear: both;
-    padding-top: 15px; /* یک فاصله کوچک از بالایی */
+    padding-top: 15px; 
+}
+
+
+/* *** راه‌حل مشکل موبایل اینجاست ***
+   این کد به مرورگر میگه در صفحه‌های کوچک (موبایل) چکار کنه 
+*/
+@media (max-width: 768px) {
+    .uni-logo {
+        float: none; /* ۱. شناور بودن رو خاموش کن */
+        display: block; /* ۲. لوگو رو بکن یک بلوک کامل */
+        margin: 0 auto 15px auto; /* ۳. بیارش وسط و از پایین فاصله بده */
+        width: 70px; /* در موبایل حتی می‌تونه بزرگتر هم باشه */
+        height: 70px;
+    }
+    
+    .education-item + .education-item {
+        clear: none; /* چون شناوری خاموش شده، اینم خاموش می‌کنیم */
+    }
 }
     }
 
 }
+
 
 
 
