@@ -1,0 +1,354 @@
+/* --- ۱. تنظیمات ریشه (تم Pastel Neumorphism) --- */
+:root {
+    --bg-color: #E6EEF8; /* پس‌زمینه آبی-خاکستری پاستلی */
+    --text-primary: #3A4F6A; /* رنگ متن اصلی (آبی تیره) */
+    --text-secondary: #7B8B9E; /* رنگ متن ثانویه (خاکستری) */
+    --accent-color: #5D9CEC; /* آبی پاستلی (رنگ اصلی) */
+    --accent-color-dark: #3B7BCC; /* آبی پاستلی تیره‌تر برای هاور */
+    --shadow-light: #FFFFFF; /* سایه روشن (سفید) */
+    --shadow-dark: #C1C9D2; /* سایه تیره (بر اساس پس‌زمینه) */
+}
+
+/* --- ۲. ریست و تنظیمات کلی بادی --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.theme-pastel-neumorphism {
+    font-family: 'Vazirmatn', sans-serif;
+    direction: rtl;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.7;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px; 
+    margin: 20px auto;
+}
+
+/* --- ۳. هدر رزومه (Neumorphism) --- */
+.resume-header-bento {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    padding: 25px;
+    background: var(--bg-color); /* همرنگ پس‌زمینه */
+    border-radius: 20px; /* گوشه‌های نرم */
+    /* سایه خفن نومورفیسم */
+    box-shadow: 10px 10px 20px var(--shadow-dark), 
+                -10px -10px 20px var(--shadow-light);
+}
+
+.profile-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--bg-color); /* مرز همرنگ */
+    /* سایه دوتایی برای عکس */
+    box-shadow: 6px 6px 12px var(--shadow-dark), 
+                -6px -6px 12px var(--shadow-light);
+    flex-shrink: 0;
+}
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header-info {
+    flex-grow: 1;
+}
+.header-info h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+}
+.header-info .job-title {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px 25px;
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+.contact-info i {
+    margin-left: 8px;
+    color: var(--accent-color);
+}
+
+/* دکمه‌های نومورفیسم */
+.contact-info-social {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    box-shadow: 5px 5px 10px var(--shadow-dark), 
+                -5px -5px 10px var(--shadow-light);
+    color: var(--text-primary);
+}
+.social-link i { margin-left: 5px; }
+
+/* افکت خفن فشرده شدن */
+.social-link:hover {
+    box-shadow: inset 3px 3px 6px var(--shadow-dark), 
+                inset -3px -3px 6px var(--shadow-light);
+    color: var(--accent-color);
+}
+.social-link.linkedin i { color: #0077B5; }
+.social-link.github i { color: #333; }
+
+/* --- ۴. گرید اصلی بنتو (Neumorphism) --- */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(180px, auto);
+    gap: 25px; /* فاصله بیشتر برای سایه‌ها */
+}
+
+.bento-box {
+    background: var(--bg-color); /* همرنگ پس‌زمینه */
+    border-radius: 20px;
+    padding: 25px;
+    /* سایه اصلی نومورفیسم */
+    box-shadow: 10px 10px 20px var(--shadow-dark), 
+                -10px -10px 20px var(--shadow-light);
+    opacity: 0;
+    animation: slideUpFade 0.5s ease-out forwards;
+    transition: all 0.3s ease-out; /* انیمیشن نرم */
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- انیمیشن خفن فشرده شدن (Pressed) --- */
+.bento-box:hover {
+    transform: scale(0.98); /* کمی کوچک می‌شود */
+    /* سایه‌ها معکوس و داخلی می‌شوند */
+    box-shadow: inset 7px 7px 15px var(--shadow-dark), 
+                inset -7px -7px 15px var(--shadow-light);
+}
+
+/* --- تعریف اندازه‌های جعبه‌ها --- */
+.bento-box.span-2 { grid-column: span 2; }
+.bento-box.span-3 { grid-column: span 3; }
+.bento-box.tall { grid-row: span 2; }
+
+/* --- ۵. استایل محتوای داخل جعبه‌ها --- */
+.bento-box h2 {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    /* خط جداکننده به سبک نومورفیسم (فرورفته) */
+    border-bottom: 2px solid transparent;
+    box-shadow: 0 5px 5px -5px var(--shadow-dark), 
+                0 -5px 5px -5px var(--shadow-light);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.bento-box h2 i { font-size: 1.2rem; }
+
+/* بخش مدارک */
+.certificate-item {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.certificate-item i.fa-award {
+    font-size: 3rem;
+    color: var(--accent-color);
+    /* سایه نومورفیسم برای آیکون */
+    text-shadow: 3px 3px 5px var(--shadow-dark), -3px -3px 5px var(--shadow-light);
+    margin-bottom: 15px;
+}
+.certificate-item h3 {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+}
+.certificate-item p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+.certificate-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 10px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    /* سایه نومورفیسم دکمه */
+    box-shadow: 5px 5px 10px var(--shadow-dark), 
+                -5px -5px 10px var(--shadow-light);
+}
+.certificate-link i { color: var(--accent-color); }
+.certificate-link:hover {
+    /* افکت فشرده شدن */
+    box-shadow: inset 3px 3px 6px var(--shadow-dark), 
+                inset -3px -3px 6px var(--shadow-light);
+    color: var(--accent-color);
+}
+
+/* بخش مهارت‌ها */
+.skill-category { margin-bottom: 15px; }
+.skill-category:last-child { margin-bottom: 0; }
+.skill-category h3 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+.skill-item span {
+    flex-basis: 120px;
+    flex-shrink: 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+.skill-bar { /* نوار مهارت فرورفته */
+    flex-grow: 1;
+    height: 10px;
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    overflow: hidden;
+    /* سایه داخلی برای ایجاد حس فرورفتگی */
+    box-shadow: inset 3px 3px 6px var(--shadow-dark), 
+                inset -3px -3px 6px var(--shadow-light);
+}
+.skill-fill { /* نوار پر شده بیرون‌زده */
+    display: block;
+    height: 100%;
+    border-radius: 5px;
+    background: var(--accent-color);
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.1); /* سایه ظریف روی خود نوار */
+    width: 0; /* برای انیمیشن */
+    animation: fillSkillBar 1s ease-out 0.5s forwards;
+}
+
+/* بخش تجربه کاری */
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.experience-item, .education-item, .project-item { padding-bottom: 10px; }
+.experience-item:last-child, .education-item:last-child, .project-item:last-child { padding-bottom: 0; }
+.experience-item h3, .education-item h3, .project-item h3 {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 3px;
+}
+.company, .university, .school, .project-tech {
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+.duration {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+.experience-item ul { list-style: none; padding-right: 0; }
+.experience-item ul li {
+    position: relative;
+    padding-right: 20px;
+    margin-bottom: 5px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+.experience-item ul li i {
+    position: absolute;
+    right: 0;
+    top: 4px;
+    color: var(--accent-color);
+    font-size: 0.8rem;
+}
+.project-item {
+    border-top: 2px solid transparent;
+    box-shadow: 0 5px 5px -5px var(--shadow-dark), 
+                0 -5px 5px -5px var(--shadow-light);
+    padding-top: 15px;
+}
+.project-item:first-child { border-top: none; padding-top: 0; box-shadow: none; }
+.project-link {
+    color: var(--accent-color-dark);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+.project-link:hover { color: var(--accent-color); }
+.project-link i { margin-left: 5px; }
+
+/* --- ۶. انیمیشن‌ها --- */
+@keyframes slideUpFade {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.skill-fill[data-skill-level="90"] { --target-width: 90%; }
+.skill-fill[data-skill-level="85"] { --target-width: 85%; }
+.skill-fill[data-skill-level="80"] { --target-width: 80%; }
+.skill-fill[data-skill-level="75"] { --target-width: 75%; }
+.skill-fill[data-skill-level="70"] { --target-width: 70%; }
+.skill-fill[data-skill-level="65"] { --target-width: 65%; }
+.skill-fill[data-skill-level="60"] { --target-width: 60%; }
+
+@keyframes fillSkillBar {
+    from { width: 0; }
+    to { width: var(--target-width); }
+}
+
+/* --- ۷. واکنش‌گرایی (بسیار مهم) --- */
+@media (max-width: 992px) {
+    .bento-grid { grid-template-columns: repeat(2, 1fr); }
+    .bento-box.span-3 { grid-column: span 2; }
+    .bento-box.tall { grid-row: span 1; }
+}
+
+@media (max-width: 768px) {
+    .resume-header-bento { flex-direction: column; text-align: center; }
+    .contact-info { justify-content: center; }
+    .contact-info-social { flex-direction: row; }
+    .bento-grid { grid-template-columns: 1fr; }
+    .bento-box.span-2,
+    .bento-box.span-3,
+    .bento-box.tall {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}
