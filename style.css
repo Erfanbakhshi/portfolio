@@ -1,460 +1,156 @@
-/* --- ۱. تنظیمات ریشه و متغیرهای رنگی (تم Cyberglow Resume) --- */
-:root {
-    --bg-color: #0a0a1a; /* پس‌زمینه (آبی نفتی خیلی تیره) */
-    --card-bg: rgba(20, 30, 50, 0.1); /* پس‌زمینه کارت (شیشه‌ای آبی‌فام) */
-    --card-border: rgba(0, 242, 255, 0.2); /* حاشیه نئونی فیروزه‌ای */
-    --text-primary: #e0e5f0; /* متن اصلی (سفید مایل به آبی) */
-    --text-secondary: #8088a0; /* متن ثانویه (خاکستری-آبی) */
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>داشبورد رزومه - عرفان بخشی</title>
     
-    /* رنگ‌های نئونی */
-    --neon-cyan: #00f2ff;
-    --neon-pink: #ff00aa;
-    --neon-green: #00ff9d;
-    --neon-yellow: #fffb00;
-
-    /* گرادیان‌های نوار پیشرفت مهارت‌ها */
-    --skill-grad-high: linear-gradient(90deg, var(--neon-green), var(--neon-cyan));
-    --skill-grad-mid: linear-gradient(90deg, var(--neon-pink), #d400ff);
-    --skill-grad-low: linear-gradient(90deg, var(--neon-yellow), #ff8800);
-}
-
-/* --- ۲. ریست و تنظیمات کلی بادی --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body.theme-cyberglow-resume {
-    font-family: 'Vazirmatn', sans-serif;
-    direction: rtl;
-    background-color: var(--bg-color);
-    color: var(--text-primary);
-    line-height: 1.8; /* خطوط بازتر برای خوانایی بهتر رزومه */
-    padding: 20px;
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     
-    background-image: 
-        linear-gradient(rgba(0, 242, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 242, 255, 0.05) 1px, transparent 1px);
-    background-size: 30px 30px;
-}
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-pastel-neumorphism">
 
-.container {
-    max-width: 1200px; 
-    margin: 20px auto;
-}
+    <div class="container">
+        
+        <header class="resume-header-bento">
+            <div class="profile-photo">
+                <img src="avatar.jpg" alt="عکس پروفایل عرفان بخشی"> 
+            </div>
+            <div class="header-info">
+                <h1>عرفان بخشی</h1>
+                <p class="job-title">دانشجوی شبکه / متخصص میکروتیک و سیسکو</p>
+                <div class="contact-info">
+                    <span><i class="fas fa-map-marker-alt"></i> ساکن مشهد</span>
+                    <span><i class="fas fa-envelope"></i> erfanbakhshi69@gmail.com</span>
+                    <span><i class="fas fa-phone"></i> 09158611367</span>
+                </div>
+            </div>
+            <div class="contact-info-social">
+                <a href="https://www.linkedin.com/in/erfan-bakhshi-55322338b" target="_blank" class="social-link linkedin">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/Erfanbakhshi" target="_blank" class="social-link github">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </header>
 
-/* --- ۳. هدر رزومه --- */
-.resume-header {
-    text-align: center;
-    margin-bottom: 50px;
-    padding: 30px;
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 15px;
-    backdrop-filter: blur(15px);
-    box-shadow: 0 0 20px rgba(0, 242, 255, 0.1);
-    animation: fadeIn 1s ease-out forwards;
-    position: relative;
-    overflow: hidden; /* برای برش افکت‌های اضافی */
-}
+        <main class="bento-grid">
+            
+            <section class="bento-box span-2" style="animation-delay: 0.1s;">
+                <h2><i class="fas fa-user-tie"></i> خلاصه حرفه‌ای</h2>
+                <p>
+                    دانشجوی فعال و پرانرژی در حوزه شبکه‌های کامپیوتری با مدرک MTCNA و تسلط بر مفاهیم Network+. دارای تجربه عملی در پروژه‌های فیبر نوری و توسعه بک‌اند. علاقه‌مند به یادگیری عمیق تکنولوژی‌های سیسکو و میکروتیک و به دنبال چالش‌های جدید برای رشد و توسعه مهارت‌های فنی در حوزه فناوری اطلاعات و امنیت.
+                </p>
+            </section>
 
-.profile-photo {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto 20px auto;
-    border: 3px solid var(--neon-cyan);
-    box-shadow: 0 0 15px var(--neon-cyan), 0 0 30px rgba(0, 242, 255, 0.5);
-    transition: transform 0.3s ease;
-}
-.profile-photo:hover {
-    transform: scale(1.05);
-}
-.profile-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+            <section class="bento-box" style="animation-delay: 0.2s;">
+                <h2><i class="fas fa-certificate"></i> مدارک</h2>
+                <div class="certificate-item">
+                    <i class="fas fa-award"></i>
+                    <h3>MTCNA</h3>
+                    <p>Mikrotik Certified Network Associate</p>
+                    <a href="MTCNA.pdf" target="_blank" class="certificate-link">
+                        <i class="fas fa-external-link-alt"></i>
+                        دیدن مدرک
+                    </a>
+                </div>
+            </section>
 
-.resume-header h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: var(--neon-cyan);
-    text-shadow: 0 0 8px var(--neon-cyan), 
-                 0 0 15px rgba(0, 242, 255, 0.7);
-    margin-bottom: 10px;
-}
-.resume-header .job-title {
-    font-size: 1.5rem;
-    color: var(--neon-pink); /* رنگ دوم نئونی برای عنوان شغلی */
-    margin-bottom: 25px;
-    text-shadow: 0 0 5px var(--neon-pink);
-}
+            <section class="bento-box span-2" style="animation-delay: 0.3s;">
+                <h2><i class="fas fa-briefcase"></i> تجربه کاری</h2>
+                <div class="experience-grid">
+                    <div class="experience-item">
+                        <h3>کارشناس فنی فیبر نوری</h3>
+                        <p class="company">شرکت مخابرات ایران (مشهد)</p>
+                        <p class="duration">تیر ۱۴۰۳ - شهریور ۱۴۰۳ (۳ ماه)</p>
+                        <ul>
+                            <li><i class="fas fa-caret-right"></i> نصب و راه‌اندازی خطوط (FTTH)</li>
+                            <li><i class="fas fa-caret-right"></i> انجام عملیات فیوژن و تست کابل</li>
+                            <li><i class="fas fa-caret-right"></i> عیب‌یابی زیرساخت‌های مخابراتی</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <h3>کارآموز توسعه بک‌اند</h3>
+                        <p class="company">پارک علم و فناوری قاین</p>
+                        <p class="duration">(۲ ماه کارآموزی)</p>
+                        <ul>
+                            <li><i class="fas fa-caret-right"></i> همکاری در توسعه بک‌اند با PHP</li>
+                            <li><i class="fas fa-caret-right"></i> کار با پایگاه داده MySQL</li>
+                            <li><i class="fas fa-caret-right"></i> آشنایی با فرآیندهای توسعه نرم‌افزار</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="bento-box" style="animation-delay: 0.4s;">
+                <h2><i class="fas fa-graduation-cap"></i> تحصیلات</h2>
+                <div class="education-item">
+                    <h3>کاردانی رشته شبکه</h3>
+                    <p class="university">دانشگاه فنی شهید منتظری</p>
+                    <p class="duration">۱۴۰۲ - در حال تحصیل</p>
+                </div>
+                <div class="education-item">
+                    <h3>دیپلم شبکه و نرم‌افزار</h3>
+                    <p class="school">هنرستان خوارزمی</p>
+                    <p class="duration">۱۳۹۸ - ۱۴۰۲</p>
+                </div>
+            </section>
+            
+            <section class="bento-box" style="animation-delay: 0.5s;">
+                <h2><i class="fas fa-cogs"></i> مهارت‌ها</h2>
+                <div class="skill-category">
+                    <h3>شبکه و زیرساخت</h3>
+                    <div class="skill-item">
+                        <span>Mikrotik (MTCNA)</span>
+                        <div class="skill-bar"><div class="skill-fill" data-skill-level="90"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Network+ Concepts</span>
+                        <div class="skill-bar"><div class="skill-fill" data-skill-level="80"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Fiber Optics</span>
+                        <div class="skill-bar"><div class="skill-fill" data-skill-level="85"></div></div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>برنامه‌نویسی</h3>
+                    <div class="skill-item">
+                        <span>Python</span>
+                        <div class="skill-bar"><div class="skill-fill" data-skill-level="70"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>HTML / CSS</span>
+                        <div class="skill-bar"><div class="skill-fill" data-skill-level="75"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>PHP</span>
+                        <div class="skill-bar"><div class="skill-fill" data-skill-level="60"></div></div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="bento-box span-2" style="animation-delay: 0.6s;">
+                <h2><i class="fas fa-code-branch"></i> پروژه‌ها</h2>
+                <div class="project-item">
+                    <h3>توسعه بک‌اند وب‌سایت</h3>
+                    <p class="project-tech">PHP, MySQL, HTML/CSS</p>
+                    <p>
+                        همکاری در توسعه و نگهداری بک‌اند وب‌سایت مجموعه مصباح (majmoemesbah.ir) در دوره کارآموزی.
+                        <a href="https://majmoemesbah.ir/" target="_blank" class="project-link"><i class="fas fa-link"></i> مشاهده وب‌سایت</a>
+                    </p>
+                </div>
+                <div class="project-item">
+                    <h3>پروژه عملی فیبر نوری</h3>
+                    <p class="project-tech">Fiber Optics, Fusion Splicing, OTDR</p>
+                    <p>
+                        پیاده‌سازی عملیاتی زیرساخت فیبر نوری، شامل کابل‌کشی و تست‌های نهایی در شرکت مخابرات.
+                    </p>
+                </div>
+            </section>
 
-.contact-info {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px 30px;
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-}
-.contact-info-social {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px 40px;
-    font-size: 1.2rem;
-    border-top: 1px solid var(--card-border);
-    padding-top: 20px;
-}
-
-.contact-info span, .contact-info a,
-.contact-info-social span, .contact-info-social a {
-    color: var(--text-primary);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    transition: color 0.3s ease;
-}
-.contact-info span:hover, .contact-info a:hover,
-.contact-info-social span:hover, .contact-info-social a:hover {
-    color: var(--neon-cyan);
-    text-shadow: 0 0 5px var(--neon-cyan);
-}
-.contact-info i, .contact-info-social i {
-    margin-left: 10px;
-    font-size: 1.3rem;
-    background: linear-gradient(45deg, var(--neon-pink), var(--neon-cyan));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.contact-info-social a {
-    color: var(--neon-green); /* لینک‌ها سبز نئونی */
-    font-weight: 700;
-}
-
-/* --- ۴. گرید اصلی رزومه --- */
-.resume-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* دو ستون برای دسکتاپ */
-    gap: 30px;
-}
-
-.resume-card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 12px;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 0 15px rgba(0, 242, 255, 0.1);
-    padding: 30px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0;
-    animation: slideUpFade 0.6s ease-out forwards;
-    display: flex;
-    flex-direction: column; /* برای هم‌ترازی محتوا */
-}
-
-.resume-card.full-width {
-    grid-column: 1 / -1; /* این کارت تمام عرض رو اشغال می‌کنه */
-}
-
-.resume-card:hover {
-    transform: translateY(-8px) scale(1.01);
-    box-shadow: 0 0 25px var(--neon-cyan), 
-                0 0 50px rgba(0, 242, 255, 0.3);
-}
-
-.resume-card h2 {
-    font-size: 1.8rem;
-    color: var(--neon-cyan);
-    margin-bottom: 20px;
-    border-bottom: 2px solid rgba(0, 242, 255, 0.3);
-    padding-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-shadow: 0 0 5px var(--neon-cyan);
-}
-.glow-icon-small {
-    font-size: 1.5rem;
-    background: linear-gradient(45deg, var(--neon-pink), var(--neon-cyan));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.resume-card p {
-    color: var(--text-primary);
-    margin-bottom: 15px;
-}
-
-/* --- بخش تجربه کاری و تحصیلات --- */
-.experience-item, .education-item, .project-item {
-    margin-bottom: 25px;
-    padding-bottom: 20px;
-    border-bottom: 1px dashed var(--card-border);
-    position: relative;
-}
-.experience-item:last-child, .education-item:last-child, .project-item:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-.experience-item h3, .education-item h3, .project-item h3 {
-    font-size: 1.4rem;
-    color: var(--neon-green); /* عناوین داخلی سبز نئونی */
-    margin-bottom: 5px;
-    text-shadow: 0 0 3px var(--neon-green);
-}
-.company, .university, .school, .project-tech {
-    color: var(--text-secondary);
-    font-style: italic;
-    margin-bottom: 5px;
-}
-.duration {
-    color: var(--neon-pink);
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-.experience-item ul {
-    list-style: none; /* حذف دایره‌های لیست */
-    padding-right: 0;
-    margin-top: 10px;
-}
-.experience-item ul li {
-    position: relative;
-    padding-right: 25px;
-    margin-bottom: 8px;
-    color: var(--text-primary);
-}
-.glow-icon-list {
-    position: absolute;
-    right: 0;
-    top: 5px;
-    color: var(--neon-cyan);
-    text-shadow: 0 0 5px var(--neon-cyan);
-    font-size: 0.9rem;
-}
-
-.project-link {
-    color: var(--neon-cyan);
-    text-decoration: none;
-    margin-top: 10px;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-weight: 700;
-    transition: text-shadow 0.3s ease, color 0.3s ease;
-}
-.project-link:hover {
-    text-shadow: 0 0 8px var(--neon-cyan);
-    color: #ffffff;
-}
-
-/* --- بخش مهارت‌ها (با نوارهای پیشرفت نئونی) --- */
-.skill-category {
-    margin-bottom: 25px;
-    border-bottom: 1px dashed var(--card-border);
-    padding-bottom: 15px;
-}
-.skill-category:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-.skill-category h3 {
-    font-size: 1.2rem;
-    color: var(--neon-pink);
-    margin-bottom: 15px;
-    text-shadow: 0 0 3px var(--neon-pink);
-}
-.skill-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 10px;
-}
-.skill-item span {
-    flex-basis: 120px; /* عرض ثابت برای نام مهارت */
-    flex-shrink: 0;
-    color: var(--text-primary);
-    font-weight: 400;
-}
-.skill-bar {
-    flex-grow: 1;
-    height: 10px;
-    background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 5px;
-    overflow: hidden;
-}
-.skill-fill {
-    display: block;
-    height: 100%;
-    border-radius: 5px;
-    background: var(--skill-grad-mid); /* پیش‌فرض */
-    transition: width 1s ease-out;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
-    /* انیمیشن برای بارگذاری */
-    width: 0; /* شروع از صفر */
-    animation: fillSkillBar 1s ease-out 0.5s forwards;
-}
-
-/* اعمال گرادیان‌ها بر اساس سطح مهارت (data-skill-level) */
-.skill-fill[data-skill-level="90"] { --target-width: 90%; background: var(--skill-grad-high); box-shadow: 0 0 8px var(--neon-green); }
-.skill-fill[data-skill-level="85"] { --target-width: 85%; background: var(--skill-grad-high); box-shadow: 0 0 8px var(--neon-green); }
-.skill-fill[data-skill-level="80"] { --target-width: 80%; background: var(--skill-grad-mid); box-shadow: 0 0 8px var(--neon-pink); }
-.skill-fill[data-skill-level="75"] { --target-width: 75%; background: var(--skill-grad-mid); box-shadow: 0 0 8px var(--neon-pink); }
-.skill-fill[data-skill-level="70"] { --target-width: 70%; background: var(--skill-grad-mid); box-shadow: 0 0 8px var(--neon-pink); }
-.skill-fill[data-skill-level="65"] { --target-width: 65%; background: var(--skill-grad-low); box-shadow: 0 0 8px var(--neon-yellow); }
-.skill-fill[data-skill-level="60"] { --target-width: 60%; background: var(--skill-grad-low); box-shadow: 0 0 8px var(--neon-yellow); }
-
-
-/* --- بخش مدارک --- */
-.certificate-item {
-    text-align: center;
-    padding: 20px 0;
-    flex-grow: 1; /* باعث میشه کارت تمام ارتفاع خالی رو پر کنه */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.glow-icon-large {
-    font-size: 5rem;
-    margin-bottom: 20px;
-    color: var(--neon-green);
-    text-shadow: 0 0 10px var(--neon-green), 0 0 20px rgba(0, 255, 157, 0.5);
-}
-.certificate-item h3 {
-    font-size: 2rem;
-    color: var(--neon-green);
-    text-shadow: 0 0 5px var(--neon-green);
-    margin-bottom: 5px;
-}
-.certificate-item p {
-    font-size: 1.2rem;
-    color: var(--text-primary);
-    margin: 0;
-}
-.certificate-item p.school {
-    color: var(--text-secondary);
-    font-style: italic;
-    font-size: 1rem;
-}
-
-
-/* --- انیمیشن‌ها و واکنش‌گرایی --- */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-@keyframes slideUpFade {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fillSkillBar {
-    from { width: 0; }
-    to { width: var(--target-width); } /* پر شدن تا عرض هدف */
-}
-
-@media (max-width: 992px) {
-    .resume-grid {
-        grid-template-columns: 1fr; /* در تبلت‌ها و موبایل‌ها یک ستون */
-    }
-    .resume-card.full-width {
-        grid-column: auto;
-    }
-    .resume-header h1 {
-        font-size: 2.5rem;
-    }
-    .resume-header .job-title {
-        font-size: 1.2rem;
-    }
-    .contact-info {
-        flex-direction: column;
-        gap: 10px;
-        margin-bottom: 15px;
-    }
-    .contact-info-social {
-        padding-top: 15px;
-        gap: 15px 25px;
-    }
-    .contact-info span, .contact-info a {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 576px) {
-    body {
-        padding: 10px;
-    }
-    .container {
-        margin: 10px auto;
-        padding: 15px;
-    }
-    .resume-header {
-        padding: 20px;
-    }
-    .resume-header h1 {
-        font-size: 2rem;
-    }
-    .resume-card {
-        padding: 20px;
-    }
-    .resume-card h2 {
-        font-size: 1.5rem;
-    }
-    .experience-item h3, .education-item h3, .project-item h3 {
-        font-size: 1.2rem;
-    }
-    .skill-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
-    }
-    .skill-item span {
-        flex-basis: auto;
-        width: 100%;
-        text-align: right;
-    }
-
-
-/* --- استایل دکمه دیدن مدرک (نسخه فیروزه‌ای) --- */
-.certificate-link {
-    /* تعریف یک رنگ فیروزه‌ای اختصاصی */
-    --neon-turquoise: #00E5EE; 
-
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 25px; /* فاصله از متن بالا */
-    padding: 10px 20px;
-    border: 2px solid var(--neon-turquoise); /* استفاده از رنگ فیروزه‌ای */
-    border-radius: 50px; /* کپسولی شکل */
-    background: rgba(0, 229, 238, 0.1); /* پس‌زمینه شفاف فیروزه‌ای */
-    color: var(--neon-turquoise);
-    text-decoration: none;
-    font-weight: 700;
-    transition: all 0.3s ease;
-}
-
-.certificate-link i {
-    font-size: 1rem;
-    text-shadow: none !important; /* حذف سایه اضافی آیکون‌ها */
-    color: var(--neon-turquoise) !important; /* اطمینان از رنگ فیروزه‌ای */
-}
-
-.certificate-link:hover {
-    background: var(--neon-turquoise);
-    color: var(--bg-color-start); /* رنگ پس‌زمینه تیره */
-    box-shadow: 0 0 20px var(--neon-turquoise);
-    transform: scale(1.05);
-}
-
-.certificate-link:hover i {
-    color: var(--bg-color-start) !important; /* تغییر رنگ آیکون در هاور */
-}
-
+        </main> </div> </body>
+</html>
