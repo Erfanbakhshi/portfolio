@@ -332,24 +332,36 @@ body.theme-pastel-neumorphism {
     to { width: var(--target-width); }
 }
 
-/* --- استایل لوگوی دانشگاه (بزرگتر و شناور در چپ) --- */
-.uni-logo {
-    width: 64px;  /* بزرگتر شد (از 52px به 64px) */
-    height: 64px;
-    border-radius: 16px; /* گوشه‌های گرد متناسب */
-    object-fit: cover;
-    
-    float: left; /* شناور در دسکتاپ */
-    
-    margin-right: 18px; /* فاصله بیشتر */
-    margin-left: 0; 
-    margin-bottom: 5px;
+/* --- استایل جدید بخش تحصیلات (Flexbox) --- */
 
-    /* افکت نومورفیسم قوی‌تر */
+.education-item {
+    /* ۱. فعال کردن Flexbox برای دسکتاپ */
+    display: flex;
+    align-items: flex-start; /* تراز از بالا */
+    gap: 20px; /* فاصله بین لوگو و متن */
+}
+
+/* این آیتم دوم (دیپلم) نیازی به Flexbox نداره */
+.education-item + .education-item {
+    /* جدا کردن آیتم دیپلم از بالایی */
+    border-top: 2px solid transparent;
+    box-shadow: 0 -5px 5px -5px var(--shadow-dark), 
+                0 5px 5px -5px var(--shadow-light);
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.uni-logo {
+    width: 80px;  /* بزرگتر شد! */
+    height: 80px;
+    border-radius: 18px; /* گوشه‌های گرد متناسب */
+    object-fit: cover;
+    flex-shrink: 0; /* جلوگیری از کوچک شدن لوگو */
+    
+    /* افکت نومورفیسم */
     box-shadow: 6px 6px 12px var(--shadow-dark), 
                 -6px -6px 12px var(--shadow-light);
-    
-    padding: 5px; /* پدینگ متناسب */
+    padding: 5px;
     background-color: var(--bg-color);
     transition: all 0.3s ease;
 }
@@ -360,32 +372,31 @@ body.theme-pastel-neumorphism {
                 -8px -8px 16px var(--shadow-light);
 }
 
-/* این کد برای جلوگیری از به‌هم‌ریختگی در دسکتاپ لازمه */
-.education-item + .education-item {
-    clear: both;
-    padding-top: 15px; 
+.education-text-content {
+    /* این div جدید اجازه می‌ده متن به صورت یکپارچه رشد کنه */
+    flex-grow: 1; 
 }
 
 
-/* *** راه‌حل مشکل موبایل اینجاست ***
-   این کد به مرورگر میگه در صفحه‌های کوچک (موبایل) چکار کنه 
-*/
+/* *** راه‌حل قطعی مشکل موبایل *** */
 @media (max-width: 768px) {
-    .uni-logo {
-        float: none; /* ۱. شناور بودن رو خاموش کن */
-        display: block; /* ۲. لوگو رو بکن یک بلوک کامل */
-        margin: 0 auto 15px auto; /* ۳. بیارش وسط و از پایین فاصله بده */
-        width: 70px; /* در موبایل حتی می‌تونه بزرگتر هم باشه */
-        height: 70px;
+    .education-item {
+        /* ۱. چیدمان Flex رو عمودی کن */
+        flex-direction: column;
+        align-items: center; /* ۲. همه‌چیز بیاد وسط */
+        text-align: center; /* ۳. متن هم وسط‌چین بشه */
     }
-    
-    .education-item + .education-item {
-        clear: none; /* چون شناوری خاموش شده، اینم خاموش می‌کنیم */
+
+    .uni-logo {
+        margin-bottom: 15px; /* فاصله لوگو از متن در موبایل */
+        width: 100px; /* در موبایل حتی بزرگترش می‌کنیم */
+        height: 100px;
     }
 }
     }
 
 }
+
 
 
 
