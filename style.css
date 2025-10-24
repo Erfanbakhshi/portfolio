@@ -349,7 +349,25 @@ body.theme-pastel-neumorphism {
     .bento-box.tall {
         grid-column: span 1;
         grid-row: span 1;
+        /* --- استایل لوگوی دانشگاه (Neumorphism) --- */
+.uni-logo {
+    width: 28px;  /* اندازه کوچک */
+    height: 28px;
+    border-radius: 8px; /* گوشه‌های گرد نرم */
+    object-fit: cover; /* عکس رو فیت می‌کنه */
+    margin-left: 10px; /* فاصله از متن */
+    vertical-align: middle; /* تراز عمودی با متن */
+    
+    /* افکت نومورفیسم (بیرون زده) مثل کارت‌ها */
+    box-shadow: 4px 4px 8px var(--shadow-dark), 
+                -4px -4px 8px var(--shadow-light);
+    
+    /* یک پدینگ کوچک تا عکس به لبه نچسبه */
+    padding: 2px;
+    background-color: var(--bg-color);
+}
     }
 
 }
+
 
