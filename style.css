@@ -332,33 +332,45 @@ body.theme-pastel-neumorphism {
     to { width: var(--target-width); }
 }
 
-/* --- ۷. واکنش‌گرایی (بسیار مهم) --- */
-@media (max-width: 992px) {
-    .bento-grid { grid-template-columns: repeat(2, 1fr); }
-    .bento-box.span-3 { grid-column: span 2; }
-    .bento-box.tall { grid-row: span 1; }
+/* --- استایل لوگوی دانشگاه (بزرگتر و شناور در چپ) --- */
+.uni-logo {
+    width: 52px;  /* بزرگتر و حرفه‌ای‌تر */
+    height: 52px;
+    border-radius: 12px; /* گوشه‌های گرد متناسب */
+    object-fit: cover;
+    
+    /* جادوی اصلی: شناور شدن به سمت چپ */
+    float: left; 
+    
+    /* فاصله از متنی که در سمت راستش قرار میگیره */
+    margin-right: 15px; 
+    margin-left: 0; 
+    margin-bottom: 5px;
+
+    /* افکت نومورفیسم قوی‌تر برای سایز بزرگتر */
+    box-shadow: 5px 5px 10px var(--shadow-dark), 
+                -5px -5px 10px var(--shadow-light);
+    
+    padding: 4px; /* پدینگ متناسب */
+    background-color: var(--bg-color);
+    transition: all 0.3s ease;
 }
 
-/* --- استایل لوگوی دانشگاه (کوچک و در سمت چپ) --- */
-.uni-logo {
-    width: 24px;  /* خیلی کوچیک‌تر شد */
-    height: 24px;
-    border-radius: 6px; /* گوشه‌های گرد متناسب */
-    object-fit: cover;
-    margin-right: 10px; /* حالا فاصله از سمت راست می‌گیره */
-    margin-left: 0;
-    vertical-align: middle; /* تراز عمودی با متن */
-    
-    /* افکت نومورفیسم ظریف‌تر برای سایز کوچک */
-    box-shadow: 3px 3px 6px var(--shadow-dark), 
-                -3px -3px 6px var(--shadow-light);
-    
-    padding: 2px; /* پدینگ کوچک */
-    background-color: var(--bg-color);
+.uni-logo:hover {
+    transform: scale(1.05); /* افکت هاور ظریف */
+    box-shadow: 7px 7px 14px var(--shadow-dark), 
+                -7px -7px 14px var(--shadow-light);
+}
+
+/* این کد مهم، جلوی به‌هم‌ریختگی آیتم بعدی (دیپلم) رو می‌گیره */
+.education-item + .education-item {
+    clear: both;
+    padding-top: 15px; /* یک فاصله کوچک از بالایی */
 }
     }
 
 }
+
 
 
 
