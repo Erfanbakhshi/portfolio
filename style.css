@@ -320,14 +320,13 @@ body.theme-pastel-neumorphism {
     to { opacity: 1; transform: translateY(0); }
 }
 
-.skill-fill[data-skill-level="90"] { --target-width: 90%; }
-.skill-fill[data-skill-level="85"] { --target-width: 85%; }
-.skill-fill[data-skill-level="80"] { --target-width: 80%; }
-.skill-fill[data-skill-level="75"] { --target-width: 75%; }
-.skill-fill[data-skill-level="70"] { --target-width: 70%; }
-.skill-fill[data-skill-level="65"] { --target-width: 65%; }
-.skill-fill[data-skill-level="60"] { --target-width: 60%; }
-
+./* تعریف عرض‌های جدید برای سطح مبتدی */
+.skill-fill[data-skill-level="50"] { --target-width: 50%; }
+.skill-fill[data-skill-level="45"] { --target-width: 45%; }
+.skill-fill[data-skill-level="40"] { --target-width: 40%; }
+.skill-fill[data-skill-level="35"] { --target-width: 35%; }
+.skill-fill[data-skill-level="30"] { --target-width: 30%; }
+.skill-fill[data-skill-level="25"] { --target-width: 25%; }
 @keyframes fillSkillBar {
     from { width: 0; }
     to { width: var(--target-width); }
@@ -351,4 +350,5 @@ body.theme-pastel-neumorphism {
         grid-column: span 1;
         grid-row: span 1;
     }
+
 }
